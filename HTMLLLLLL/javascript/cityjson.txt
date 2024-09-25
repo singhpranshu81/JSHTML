@@ -1,0 +1,134 @@
+{
+  "states": [
+    {
+      "name": "Maharashtra",
+      "cities": [
+        {
+          "name": "Mumbai",
+          "details": {
+            "streets": ["Marine Drive", "Linking Road", "Colaba Causeway"],
+            "pincodes": ["400002", "400050", "400005"]
+          }
+        },
+        {
+          "name": "Pune",
+          "details": {
+            "streets": ["FC Road", "JM Road", "Baner Road"],
+            "pincodes": ["411004", "411005", "411045"]
+          }
+        },
+        {
+          "name": "Nagpur",
+          "details": {
+            "streets": ["Wardha Road", "Central Avenue", "Sitabuldi"],
+            "pincodes": ["440010", "440018", "440012"]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Karnataka",
+      "cities": [
+        {
+          "name": "Bengaluru",
+          "details": {
+            "streets": ["MG Road", "Brigade Road", "Commercial Street"],
+            "pincodes": ["560001", "560025", "560042"]
+          }
+        },
+        {
+          "name": "Mysuru",
+          "details": {
+            "streets": ["Sayyaji Rao Road", "Devaraja Urs Road", "Ashoka Road"],
+            "pincodes": ["570021", "570001", "570007"]
+          }
+        },
+        {
+          "name": "Mangaluru",
+          "details": {
+            "streets": ["Hampankatta", "Balmatta Road", "Kankanady"],
+            "pincodes": ["575001", "575002", "575003"]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tamil Nadu",
+      "cities": [
+        {
+          "name": "Chennai",
+          "details": {
+            "streets": ["Anna Salai", "T Nagar", "Velachery"],
+            "pincodes": ["600002", "600017", "600042"]
+          }
+        },
+        {
+          "name": "Coimbatore",
+          "details": {
+            "streets": ["Avinashi Road", "RS Puram", "Gandhipuram"],
+            "pincodes": ["641018", "641002", "641012"]
+          }
+        },
+        {
+          "name": "Madurai",
+          "details": {
+            "streets": ["Alagar Kovil Road", "KK Nagar", "Anna Nagar"],
+            "pincodes": ["625002", "625020", "625020"]
+          }
+        }
+      ]
+    },
+    {
+      "name": "West Bengal",
+      "cities": [
+        {
+          "name": "Kolkata",
+          "details": {
+            "streets": ["Park Street", "Salt Lake", "Gariahat"],
+            "pincodes": ["700016", "700091", "700019"]
+          }
+        },
+        {
+          "name": "Darjeeling",
+          "details": {
+            "streets": ["Mall Road", "Chowrasta", "Ladenla Road"],
+            "pincodes": ["734101", "734101", "734101"]
+          }
+        },
+        {
+          "name": "Siliguri",
+          "details": {
+            "streets": ["Hill Cart Road", "Sevoke Road", "Bidhan Road"],
+            "pincodes": ["734003", "734001", "734001"]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rajasthan",
+      "cities": [
+        {
+          "name": "Jaipur",
+          "details": {
+            "streets": ["MI Road", "Bapu Bazaar", "C Scheme"],
+            "pincodes": ["302001", "302003", "302004"]
+          }
+        },
+        {
+          "name": "Udaipur",
+          "details": {
+            "streets": ["Fatehsagar Road", "Bapu Bazaar", "Surajpole"],
+            "pincodes": ["313001", "313001", "313001"]
+          }
+        },
+        {
+          "name": "Jodhpur",
+          "details": {
+            "streets": ["Clock Tower Road", "Sardar Market", "Paota"],
+            "pincodes": ["342001", "342001", "342001"]
+          }
+        }
+      ]
+    }
+  ]
+}

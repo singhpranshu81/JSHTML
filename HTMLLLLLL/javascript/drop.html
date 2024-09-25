@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropDown</title>
+    <script>
+        var c=["banana","kela","hello","beta"]
+
+        window.onload = function p(){
+
+        var select = document.getElementById("f");
+    for(var i=0;i<c.length;i++){
+         var t= document.createElement("option");
+         t.value=c[i];
+         t.text=c[i];
+         select.appendChild(t);
+    }
+};
+    </script>
+</head>
+<body>
+  
+        <label for="f">Choose a fruit:</label>
+
+        <select name="fruits" id="f">
+      <!-- <option value="banana">banana</option> -->
+        </select>
+    
+</body>
+</html>

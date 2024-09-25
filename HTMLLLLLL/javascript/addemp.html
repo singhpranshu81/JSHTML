@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Employee Details</title>
+  </head>
+  <body>
+    <h2>Post Employee Details</h2>
+    <form action="API.html" id="employeeForm">
+      <label>Employee ID:</label>
+      <input type="text" id="eid" name="eid" /><br /><br />
+
+      <label>Name:</label>
+      <input type="text" id="ename" name="ename" /><br /><br />
+
+      <label>Email:</label>
+      <input type="email" id="email" name="email" /><br /><br />
+
+      <label>Password:</label>
+      <input type="password" id="password" name="password" /><br /><br />
+
+      <label>Gender:</label>
+      <input type="text" id="gender" name="gender" /><br /><br />
+
+      <label>Date of Birth:</label>
+      <input type="date" id="dob" name="dob" /><br /><br />
+      <!-- <label>Department ID:</label><br />
+      <input type="number" id="deptIdSelect" name="deptIdSelect" /><br />
+      <label>Department ID:</label><br /> -->
+      <!-- <select id="deptIdSelect" name="deptIdSelect" onchange="loadDeptName()"></select
+      ><br /><br /> -->
+<!-- 
+      <label>Department Name:</label>
+      <input type="text" id="deptName" name="deptName" /><br /><br /> -->
+
+      <button type="submit" onclick="postEmployee()">Submit</button>
+    </form>
+
+    <script>
+      function postEmployee() {
+        // Collecting the data from form inputs
+        const employeeData = {
+          eid: document.getElementById("eid").value,
+          ename: document.getElementById("ename").value,
+          email: document.getElementById("email").value,
+          password: document.getElementById("password").value,
+          gender: document.getElementById("gender").value,
+          dob: document.getElementById("dob").value,
+        //   department: {
+        //     deptId: document.getElementById("deptIdSelect").value,
+        //     name: document.getElementById("deptName").value,
+        //   },
+        };
+
+        // Making the POST request
+        fetch("http://localhost:8082/sprbootdemo/semployee/add", {
+          method: "POST", // Use POST method
+          headers: {
+            "Content-Type": "application/json", // Tell the server you're sending JSON
+          },
+          body: JSON.stringify(employeeData), // Send the JSON data as request body
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data); // Handle successful response
+            alert("Employee details submitted successfully!");
+          })
+          .catch((error) => {
+            console.error("Error:", error); // Handle errors
+          });
+      }
+
+    //   // Fetch department IDs on page load and populate the dropdown
+    //   function loadDeptIds() {
+    //     fetch("http://localhost:8082/sprbootdemo/sdepartments/listalldepts")
+    //       .then((response) => response.json())
+    //       .then((data) => {
+    //         const deptIdSelect = document.getElementById("deptIdSelect");
+
+    //         // Loop through department data and populate the dropdown
+    //         data.forEach((dept) => {
+    //           const option = document.createElement("option");
+    //           option.value = dept.deptId;
+    //           option.textContent = dept.deptId;
+    //           deptIdSelect.appendChild(option);
+    //         });
+    //       })
+    //       .catch((error) => {
+    //         console.error("Error fetching departments:", error);
+    //       });
+    //   }
+      // Fetch department name based on selected department ID
+    //   function loadDeptName() {
+    //     const selectedDeptId = document.getElementById("deptIdSelect").value;
+
+    //     if (!selectedDeptId) {
+    //       document.getElementById("deptName").value = "";
+    //       return;
+    //     }
+
+    //     fetch(`http://localhost:8082/sprbootdemo/sdepartments/${selectedDeptId}`)
+    //       .then((response) => response.json())
+    //       .then((data) => {
+    //         // Populate department name
+    //         document.getElementById("deptName").value = data.name;
+    //       })
+    //       .catch((error) => {
+    //         console.error("Error fetching department name:", error);
+    //       });
+    //   }
+
+      window.onload = loadDeptIds;
+    </script>
+  </body>
+</html>

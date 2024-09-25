@@ -1,0 +1,57 @@
+.container{
+   width: 100%;
+  background-color: #e2e2e2;
+}
+.head1{
+    width: 100%;
+    height: 50%;
+   background-color: rgb(146, 161, 161);
+}
+.footer2{
+    width: 100%;
+    height: 50%;
+    background-color: rgb(23, 7, 37);
+}
+.nav-bar2{
+    width: 100%;
+    height: 50%;
+    background-color: #a12797;
+}
+.nav-bar2 ul{
+    list-style-type: none;
+    display: inline;
+
+}
+.nav-bar2 ul li{
+    display: inline;
+    padding: 5px;
+}
+.container2{
+   width: 100%;
+}
+.left{
+  width: 20%;
+  height: 200px;
+  float: left;
+  background-color: #3d7f50;
+}
+.side-menu ul{
+     list-style-type: none;
+     display: inline;
+     padding: 5px;
+}
+.side-menu ul li{
+    padding-top: 5px;
+}
+.right{
+     width: 60%;
+     height: 200px;
+     float: left;
+     background-color: #dfbadc;
+}
+.middle{
+   width: 20%;
+   height: 200px;
+   float: left;
+   background-color: #aed360;
+}

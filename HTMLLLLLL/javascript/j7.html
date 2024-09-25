@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+    <script>
+       var emp={
+        empno: 123,
+        enmae: "Pranshu",
+        age: 21,
+        gg: function(){
+            return this.enmae+" "+this.age;
+        },
+        "salary info": 40000.00,
+        hobbies: null,
+        address:{
+            doorno: 11,
+            street: "MG road",
+            city: "chennai",
+            zip: 221008
+        },
+        phone:787878978
+       }
+       emp.
+       document.write(emp.gg()+"<br/> ")
+       document.write(emp["empno"]+"<br/> ")
+       document.write(emp.enmae+" <br/> ")
+       document.write(emp.age+"<br/>  ")
+       document.write(emp.address.city+"<br/>  ")
+       document.write(emp.phone+"<br/>  ")
+       document.write(emp["salary info"]+"<br/>  ")
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

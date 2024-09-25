@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuch to krenge</title>
+</head>
+<script>
+
+function validate(){
+            var un=parseInt( document.myform.n1.value);
+            var pwd=parseInt( document.myform.n2.value);
+            var c=un+pwd;
+          //  document.write(un+pwd);
+            document.getElementById('p').value = c;
+           return false;
+}
+function vlidate(){
+    var un=parseInt( document.myform.n1.value);
+            var pwd=parseInt( document.myform.n2.value);
+            var c=un+pwd;
+           alert("Button clicked!! value is "+c)
+}
+function changeColor(){
+    let v= Math.random();
+    if(v<0.3)
+    document.body.style.backgroundColor="#e2e2e2";
+else if(v>0.3 && v<0.5){
+    document.body.style.backgroundColor="pink";
+}
+else{
+    document.body.style.backgroundColor="red";
+}
+}
+//document.addEventListener("click",changeColor)
+</script>
+<body>
+    <form  name="myform"  method="get" onsubmit="return validate()">
+        <label for="fname">Number 1:</label><br>
+        <input type="text" id="fname" name="n1"><br>
+        <label for="lname">Number 2:</label><br>
+        <input type="text" id="lname" name="n2">
+        <input type="submit" value="Add">
+        <input type="text" name="dsf" id="p"  >
+        <input type="submit" value="Alert" onclick="vlidate()">
+        <input type="button" value="color" onclick="changeColor()">
+      </form>
+</body>
+</html>

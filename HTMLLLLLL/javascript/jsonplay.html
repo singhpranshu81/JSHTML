@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JsonDOM</title>
+    <script>
+      var countryStateData = {
+        //  USA: ["California", "Texas", "Florida", "New York"],
+        //  India: ["Maharashtra", "Karnataka", "Tamil Nadu", "Gujarat"],
+        India: {
+          Maharashtra: {
+            Nasik: {
+              streets: ["Wardha Road", "Central Avenue", "Sitabuldi"],
+              pincodes: ["440010", "440018", "440012"],
+            },
+          },
+          Karnataka: {
+            Bengaluru: {
+              streets: ["MG Road", "Brigade Road", "Commercial Street"],
+              pincodes: ["560001", "560025", "560042"],
+            },
+          },
+        },
+        // USA: ["California", "Texas", "Florida", "New York"],
+        // India:["Maharashtra","Karnataka"]
+            
+
+
+
+
+
+
+
+
+
+        //    Australia: ["New South Wales", "Victoria", "Queensland", "Tasmania"],
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        //var dropdown = document.getElementById("countryDropdown");
+        populateCountries();
+        
+      });
+
+      function populateCountries() {
+        var countryDropdown = document.getElementById("countryDropdown");
+        for (var country in countryStateData) {
+          var option = document.createElement("option");
+          option.value = country;
+          option.text = country;
+          countryDropdown.add(option);
+        }
+      }
+      function loadStates() {
+        var countryDropdown = document.getElementById("countryDropdown");
+        var stateDropdown = document.getElementById("stateDropdown");
+        var selectedCountry = countryDropdown.value;
+     
+        stateDropdown.length = 1;
+
+        if (selectedCountry) {
+            var states = countryStateData[selectedCountry];         
+            for (var state in states) {
+            var option = document.createElement("option");
+            option.value = state;
+            option.text = state;
+            stateDropdown.add(option);
+          }
+        }
+      }
+ 
+      function loadCity() {
+        //get city dropdown
+        var cityDropdown = document.getElementById("cityDropdown");
+        var selectedCountry = document.getElementById("countryDropdown").value;
+        //get selected state
+        var selectedState = document.getElementById("stateDropdown").value;
+        cityDropdown.length = 1;
+        console.log(selectedState)
+        console.log(countryStateData[selectedCountry][selectedState])
+      //  do the necessary on city
+        if (selectedState) {
+          //get the cities
+          var cities = countryStateData[selectedCountry][selectedState];
+          console.log(cities)
+          for (var city in cities) {
+            var option = document.createElement("option");
+            option.value = city;
+            option.text = city;
+            cityDropdown.add(option);
+          }
+        }
+      }
+     function loadStreet(){
+               var streetsDropdown = document.getElementById("streetsDropdown")
+               var selectedCity= document.getElementById("cityDropdown").value;
+      }
+    </script>
+  </head>
+  <body>
+    <label for="countryDropdown">Select Country:</label>
+    <select id="countryDropdown" onchange="loadStates()">
+      <option value="">--Select Country--</option>
+    </select>
+
+    <br /><br />
+
+    <label for="stateDropdown">Select State:</label>
+    <select id="stateDropdown" onchange="loadCity()">
+      <option value="">--Select State--</option>
+    </select>
+    <br /><br />
+    <label for="cityDropdown">Select City:</label>
+    <select id="cityDropdown" >
+      <option value="">--Select City--</option>
+    </select>
+    <br /><br />
+    <label for="streetsDropdown">Select Streets:</label>
+    <select id="streetsDropdown">
+      <option value="">--Select Streets--</option>
+    </select>
+    <br /><br />
+    <label for="pncDropdown">Select Pincode:</label>
+    <select id="pncDropdown">
+      <option value="">--Select Pincode--</option>
+    </select>
+  </body>
+</html>

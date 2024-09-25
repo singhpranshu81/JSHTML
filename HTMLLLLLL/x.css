@@ -1,0 +1,31 @@
+.container{
+    width: 100%;
+   
+}
+
+.head{
+      width: 100%;
+        height: 70%;
+}
+
+.red{
+
+    padding-left: 3px;
+    width: 100%;
+    background-color: #ff0000;
+   height: 80%;
+}
+.yellow{
+    padding-left: 3px;
+    margin-top: 10px;
+    width: 100%;
+    background-color: #ffa500;
+    height: 50%;
+}
+.green{
+    padding-left: 3px;
+    margin-top: 10px;
+    width: 100%;
+    background-color: #008900;
+    height: 50%;
+}

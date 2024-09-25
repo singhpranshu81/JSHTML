@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update</title>
+  </head>
+  <body>
+    <form action="API.html" id="myform" method="get">
+      <label for="id">Employee ID:</label>
+      <input type="text" name="id" id="id" />
+      <input type="button" value="Fetch Employee" onclick="populateEmp()" />
+      <div id="employeeFields"></div>
+      <input type="submit" value="Update" id="upd" onclick="UpdateEmp()" />
+    </form>
+
+    <script>
+      function populateEmp() {
+        var id = document.getElementById("id").value;
+
+        fetch(`http://localhost:8082/sprbootdemo/semployee/find/${id}`)
+          .then((response) => response.json())
+          .then((data) => {
+            const employeeFields = document.getElementById("employeeFields");
+            employeeFields.innerHTML = "";
+
+            for (const key in data) {
+              if (data.hasOwnProperty(key)) {
+                const label = document.createElement("label");
+                label.setAttribute("for", key);
+                label.textContent =
+                  key.charAt(0).toUpperCase() + key.slice(1) + ":";
+
+                const input = document.createElement("input");
+                input.type = "text";
+                input.name = key;
+                input.id = key;
+                input.value = data[key];
+
+                employeeFields.appendChild(label);
+                employeeFields.appendChild(input);
+                employeeFields.appendChild(document.createElement("br"));
+              }
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching employee data:", error);
+          });
+      }
+
+      // const employeeData = {
+      //   eid: document.getElementById("id").value,
+      //   ename: document.getElementById("ename").value,
+      //   email: document.getElementById("email").value,
+      //   password: document.getElementById("password").value,
+      //   gender: document.getElementById("gender").value,
+      //   dob: document.getElementById("dob").value,
+      // }; console.log(employeeData)
+      function UpdateEmp(event) {
+        event.preventDefault(); // Prevent form submission
+
+        const employeeData = {
+          eid: document.getElementById("id").value,
+          ename: document.getElementById("ename")?.value || "",
+          email: document.getElementById("email")?.value || "",
+          password: document.getElementById("password")?.value || "",
+          gender: document.getElementById("gender")?.value || "",
+          dob: document.getElementById("dob")?.value || "",
+        };
+        console.log("Updating employee with data:", employeeData);
+        fetch("http://localhost:8082/sprbootdemo/semployee/update", {
+          method: "PUT", //
+          headers: {
+            "Content-Type": "application/json", // Tell the server you're sending JSON
+          },
+          body: JSON.stringify(employeeData), // Send the JSON data as request body
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data); // Handle successful response
+            alert("Employee details submitted successfully!");
+          })
+          .catch((error) => {
+            console.error("Error:", error); // Handle errors
+          });
+      }
+    </script>
+  </body>
+</html>

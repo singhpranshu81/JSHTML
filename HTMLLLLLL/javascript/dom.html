@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      var fruits = ["Apple", "Orange", "Cherry", "Berry"];
+      var countryStateData = {
+        USA: ["California", "Texas", "Florida", "New York"],
+        India: ["Maharashtra", "Karnataka", "Tamil Nadu", "Gujarat"],
+        Australia: ["New South Wales", "Victoria", "Queensland", "Tasmania"],
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var dropdown = document.getElementById("myDropdown");
+        fruits.forEach(function (fruit) {
+          var option = document.createElement("option");
+          option.text = fruit;
+          dropdown.add(option);
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var dropdown = document.getElementById("countryDropdown");
+        populateCountries();
+      });
+
+      function populateCountries() {
+        var countryDropdown = document.getElementById("countryDropdown");
+        for (var country in countryStateData) {
+          var option = document.createElement("option");
+          option.value = country;
+          option.text = country;
+          countryDropdown.add(option);
+        }
+      }
+
+      function loadStates() {
+        var countryDropdown = document.getElementById("countryDropdown");
+        var stateDropdown = document.getElementById("stateDropdown");
+        var selectedCountry = countryDropdown.value;
+        stateDropdown.length = 1;
+        if (selectedCountry) {
+          var states = countryStateData[selectedCountry];
+          states.forEach(function (state) {
+            var option = document.createElement("option");
+            option.value = state;
+            option.text = state;
+            stateDropdown.add(option);
+          });
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <label for="myDropdown">Select Fruit:</label>
+    <select id="myDropdown"></select>
+
+    <br /><br />
+
+    <label for="countryDropdown">Select Country:</label>
+    <select id="countryDropdown" onchange="loadStates()">
+      <option value="">--Select Country--</option>
+    </select>
+
+    <br /><br />
+
+    <label for="stateDropdown">Select State:</label>
+    <select id="stateDropdown">
+      <option value="">--Select State--</option>
+    </select>
+  </body>
+</html>
