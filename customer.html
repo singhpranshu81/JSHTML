@@ -22,8 +22,29 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-</head>
-<body>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzJgZneawDbpiNMuk1_r34_eBk-biQH6U"></script>
+  <script>
+    // Initialize the Google Map
+    function initMap() {
+      var mapOptions = {
+        center: { lat: 25.3176, lng: 80.2707 }, // Centered on Chennai (example)
+        zoom: 12,
+      };
+
+      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    }
+  </script>
+  </script>
+  <style>    
+     #map {
+       height: 500px;
+       width: 500px;
+     }
+   </style>
+  
+  
+ </head>
+ <body onload="initMap()">
     <i class="bi bi-person-fill"></i> Customers
     <div class="container text-center">
         <div class="row">
@@ -33,11 +54,24 @@
           <div class="col">
             <i class="material-icons"  onclick="showListLayout()">&#xe5d2;</i>ListView
           </div>
-          <div class="col">
-            <i class="material-icons"  onclick="showListLayout()">&#xe567;</i>MapView
-          </div>
-        </div>
-      </div>
-   
-</body>
+         
+ 
+          <div class="col-sm">
+            <i class="material-icons">&#xe567;</i>Map View
+             <div class="container"></div>
+             <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+               <div class="container-fluid">
+                 <a class="navbar-brand" href="#">
+                   <i class="bi bi-geo-alt-fill"></i> Location Viewer
+                 </a>
+                 <form class="d-flex" role="search">
+                   <input class="form-control me-2" type="search" placeholder="Search location" aria-label="Search" />
+                 </form>
+               </div>
+             </nav>
+       
+             <!-- Map container -->
+             <div id="map" class="mt-4"></div>
+           </div>
+       </body>
 </html>
